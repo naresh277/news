@@ -2,15 +2,18 @@ import React, { PureComponent } from "react";
 
 
 export default class NeNavbar extends PureComponent {
+  
   render() {
+  
     return (
-      <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/">
+      <>
+      <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="/">
             NEWS HUB
           </a>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -18,46 +21,46 @@ export default class NeNavbar extends PureComponent {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="/">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="/">
                   Home
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/business">
+              <li className="nav-item">
+                <a className="nav-link active" href="/business">
                   Business                </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/entertainment">
+              <li className="nav-item">
+                <a className="nav-link active" href="/entertainment">
                   Entertainment
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/general">
+              <li className="nav-item">
+                <a className="nav-link active" href="/general">
                   General
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/health">
+              <li className="nav-item">
+                <a className="nav-link active" href="/health">
                   Health
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/science">
+              <li className="nav-item">
+                <a className="nav-link active" href="/science">
                   Science
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/sports">
+              <li className="nav-item">
+                <a className="nav-link active" href="/sports">
                   Sports
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/technology">
+              <li className="nav-item">
+                <a className="nav-link active" href="/technology">
                   Technology
                 </a>
               </li>
@@ -65,6 +68,8 @@ export default class NeNavbar extends PureComponent {
           </div>
         </div>
       </nav>
+      
+      </>
     );
   }
 }
