@@ -17,12 +17,15 @@ export class Newsbox extends Component {
 
   async componentDidMount() {
     try {
-      const url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=b98431fdead84901b89c3a5edb4f72e4&page=1&pageSize=6`;
+      this.props.setprogress(10);
+      const url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=c360473e1dc0405e9faba04b3ecfa1e6&page=1&pageSize=6`;
       const res = await fetch(url);
+      this.props.setprogress(50);
       const data = await res.json();
       this.setState({
         articles: data.articles
       });
+      this.props.setprogress(100);
     }
     catch (e) {
       console.log("something is not working");
@@ -31,7 +34,7 @@ export class Newsbox extends Component {
 
   handleOnClickPrev = async () => {
     try {
-      const url = `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=b98431fdead84901b89c3a5edb4f72e4&page=${this.state.page - 1}&pageSize=6`;
+      const url = `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=c360473e1dc0405e9faba04b3ecfa1e6&page=${this.state.page - 1}&pageSize=6`;
       const res = await fetch(url);
       const data = await res.json();
       this.setState({
@@ -46,8 +49,7 @@ export class Newsbox extends Component {
 
   handleOnClickNext = async () => {
     try {
-      console.log("Next");
-      const url = `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=b98431fdead84901b89c3a5edb4f72e4&page=${this.state.page + 1}&pageSize=6`;
+      const url = `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=c360473e1dc0405e9faba04b3ecfa1e6&page=${this.state.page + 1}&pageSize=6`;
       const res = await fetch(url);
       const data = await res.json();
       this.setState({
@@ -63,6 +65,7 @@ export class Newsbox extends Component {
 
     return (
       <>
+
         <div className='container my-3'>
           <div className='row'>
             {this.state.articles.map((element) => {
