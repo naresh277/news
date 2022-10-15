@@ -3,6 +3,7 @@ import { Newsdescription } from "./Newsdescription";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export class Newsbox extends Component {
+ 
   constructor() {
     super();
     this.state = {
@@ -16,7 +17,7 @@ export class Newsbox extends Component {
   async updateNews() {
     try {
       this.props.setprogress(10);
-      const url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=c360473e1dc0405e9faba04b3ecfa1e6&page=1&pageSize=6`;
+      const url = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=${this.props.api_key}&page=1&pageSize=6`;
       const res = await fetch(url);
       this.props.setprogress(50);
       const data = await res.json();
@@ -40,7 +41,7 @@ export class Newsbox extends Component {
       page : this.state.page+1,
     })
       this.props.setprogress(10);
-      const url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=c360473e1dc0405e9faba04b3ecfa1e6&page=${this.state.page}&pageSize=6`;
+      const url = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=${this.props.api_key}&page=${this.state.page}&pageSize=6`;
       const res = await fetch(url);
       this.props.setprogress(50);
       const data = await res.json();
@@ -64,22 +65,24 @@ export class Newsbox extends Component {
   render() {
     return (
       <>
-
+      
         <div className="container my-3">
        
-        <div className="container">
+     
         <InfiniteScroll
               dataLength={this.state.articles.length}
               next={this.fetchMoreData}
               hasMore={this.state.articles.length !== this.state.totalResults}
               loader={<h4>Loading...</h4>}
             >
-          <div className="row">
+        <div className="container" >
+          <div className="row" >
             {this.state.articles.map((element) => {
               return (
                 <>
-                  <div className="col-md-4" key={"element.url"}>
+                  <div className="col-md-4" key={element.url} >
                     <Newsdescription
+                      key={Math.random()}
                       title={element.title}
                       description={element.description}
                       imgUrl={element.urlToImage}
@@ -108,11 +111,11 @@ export class Newsbox extends Component {
               </button>
             </div> */}
             
-          </div>
+            </div> </div>
           </InfiniteScroll>
           </div>
           
-        </div>
+       
         
        
       </>
