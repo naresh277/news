@@ -80,9 +80,9 @@ export class Newsbox extends Component {
             {this.state.articles.map((element) => {
               return (
                 <>
-                  <div className="col-md-4" key={element.url} >
+                  <div className="col-md-4"  >
                     <Newsdescription
-                      key={Math.random()}
+                      key={element.url}
                       title={element.title}
                       description={element.description}
                       imgUrl={element.urlToImage}
